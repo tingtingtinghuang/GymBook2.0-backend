@@ -57,11 +57,7 @@ global.soul = {
 
 };
 
-const sequelize = new Sequelize(conf.mysql.database, conf.mysql.user, conf.mysql.password, {
-    host: conf.mysql.host,
-    dialect: 'mysql',
-});
-
+const sequelize = require('./conf/conn');
 global.sequelize = sequelize;
 
 app.set('env', env);
