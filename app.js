@@ -50,7 +50,7 @@ server.listen(8991, () => {
     }
 
     console.log('eslint done');
-    console.log('start 8699 port');
+    console.log('start 8991 port');
 });
 
 global.soul = {
