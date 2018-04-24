@@ -7,6 +7,7 @@ const Sequelize = require('sequelize');
 
 const conf = {
     title: Sequelize.STRING,    // 标题
+    logo: Sequelize.STRING, // 游泳馆的icon图片
 };
 
 const Sport = sequelize.define('sport', conf);
