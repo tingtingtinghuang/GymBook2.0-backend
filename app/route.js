@@ -12,6 +12,7 @@ const upload = multer({ storage: storage });
 const indexControl = require('./control/index');
 
 const indexRouteList = require('./route-list/index-router');
+const newsRouteList = require('./route-list/news-router');
 
 module.exports = function (app, express, acl) {
     app.use('/', cors());
@@ -27,7 +28,9 @@ module.exports = function (app, express, acl) {
 
 
     const indexRoute = indexRouteList({ upload });// index
+    const newsRoute = newsRouteList({ upload });// index
     app.use(indexRoute);
+    app.use('/news', newsRoute);
 
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
