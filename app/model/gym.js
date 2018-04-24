@@ -21,6 +21,7 @@ const conf = {
         allowNull: false,
         defaultValue: 0,
     },
+    logo: Sequelize.STRING, // 场地的logo图片
     price: Sequelize.STRING,    // 预约价格
     limit_num: Sequelize.INTEGER, // 最大预约数量 只有预约类型为按天预约 才行
     buy_limit_num: Sequelize.INTEGER, // 购买的时候 最多只能买几个
