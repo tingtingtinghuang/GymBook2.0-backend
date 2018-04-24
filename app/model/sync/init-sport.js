@@ -1,3 +1,3 @@
 const { model } = require('../sport');
 
-model.sync();
+model.sync({ force: true });

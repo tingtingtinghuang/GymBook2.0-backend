@@ -1,3 +1,3 @@
 const { model } = require('../site');
 
-model.sync();
+model.sync({ force: true });

@@ -1,3 +1,3 @@
 const { model } = require('../gym');
 
-model.sync();
+model.sync({ force: true });

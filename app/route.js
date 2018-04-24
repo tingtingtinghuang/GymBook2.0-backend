@@ -24,6 +24,8 @@ module.exports = function (app, express, acl) {
         res.locals.csrfToken = req.csrfToken();
         next();
     });
+
+
     const indexRoute = indexRouteList({ upload });// index
     app.use(indexRoute);
 

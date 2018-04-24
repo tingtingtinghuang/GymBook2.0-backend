@@ -1,3 +1,3 @@
 const { model } = require('../area');
 
-model.sync();
+model.sync({ force: true });

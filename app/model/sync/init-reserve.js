@@ -1,3 +1,3 @@
 const { model } = require('../reserve');
 
-model.sync();
+model.sync({ force: true });

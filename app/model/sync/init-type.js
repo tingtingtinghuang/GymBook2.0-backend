@@ -1,3 +1,3 @@
 const { model } = require('../type');
 
-model.sync();
+model.sync({ force: true });
