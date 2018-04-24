@@ -8,7 +8,7 @@ const Sequelize = require('sequelize');
 const conf = {
     title: Sequelize.STRING,      // 标题
     user: Sequelize.INTEGER,      // 用户id
-    time_type: { // 预约时间类型 0为按时间预约 1为按天预约 按天预约则无场地选项, 按时间预约 不一定会有场地
+    time_type: { // 预约时间类型 0为按时间预约 1为按天预约 按天预约则无场地选项
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,
