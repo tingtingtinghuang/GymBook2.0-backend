@@ -7,7 +7,7 @@
 - /gymDetail
 
 **请求方式：**
-- GET、POST
+- GET、POST 
 
 **参数：** 
 
