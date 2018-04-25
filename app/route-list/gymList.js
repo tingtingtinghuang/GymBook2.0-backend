@@ -8,6 +8,7 @@ const router = express.Router();
 const ctrl = require('../control/gymList');
 
 module.exports = function ({ auth, upload, app }) {
-    app.post('/gymList', router);
+    app.use('/gymList', router);
     router.get('/', ctrl.gymList);
+    router.post('/', ctrl.gymList);
 };

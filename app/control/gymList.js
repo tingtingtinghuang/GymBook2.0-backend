@@ -7,26 +7,25 @@ const { model: areaModel } = require('../model/area');
 const { model: gymModel } = require('../model/gym');
 
 module.exports['gymList'] = async (req, res) => {
-    let id = res.body.gymId;
-    if (!id) {
-        res.send({
-            code: -1,
-            msg: '场馆id必填',
+    // 查出所有校区
+    let area = await areaModel.findAll();
+
+    // 查出所有场馆 ref_area与id对应
+    let gym = await gymModel.findAll();
+
+    let areaList = [];
+    area.forEach((val) => {
+        let id = val.id;
+        let turnGym = gym.filter(val => val.ref_area === id);
+        areaList.push({
+            id: val.id,
+            title: val.title,
+            children: turnGym
         });
-    }
-    // let data = await areaModel.findAll();
-    // let data0 = data[0].id;
-    let test = await gymModel.findAll({
-        where: {
-            ref_area: {
-                $like: id
-            }
-        }
     });
-    console.log(test);
     res.send({
         code: 1,
-        msg: 'get area done',
-        data: test
+        msg: 'success',
+        data: areaList
     });
 };
