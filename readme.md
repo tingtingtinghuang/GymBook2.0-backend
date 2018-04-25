@@ -10,7 +10,7 @@
 推荐使用webstorm
 
 1. npm install
-2. 执行 所有的　model/sync/init-*.js (node init-gym.js)
+2. 在model/sync/下执行 所有的　init-*.js (node init-gym.js ...等等)
 3. node app.js 或者 调试debug webstorm
 
 
