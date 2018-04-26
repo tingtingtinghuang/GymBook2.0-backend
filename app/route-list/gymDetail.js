@@ -11,4 +11,6 @@ module.exports = function ({ auth, upload, app }) {
     app.use('/gymDetail', router);
     router.get('/', ctrl.gymDetail);
     router.post('/', ctrl.gymDetail);
+    router.put('/', ctrl.gymDetail);
+    router.delete('/', ctrl.gymDetail);
 };

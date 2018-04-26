@@ -1,12 +1,12 @@
 /**
- * gymList 控制器
+ * gymInfoList 控制器
  * @author carrollai
  */
 
 const { model: areaModel } = require('../model/area');
 const { model: gymModel } = require('../model/gym');
 
-module.exports['gymList'] = async (req, res) => {
+module.exports['gymInfoList'] = async (req, res) => {
     // 查出所有校区
     let area = await areaModel.findAll();
 
