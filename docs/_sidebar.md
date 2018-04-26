@@ -4,3 +4,4 @@
     * [场馆新增](/gymDetail/post)
     * [场馆修改](/gymDetail/put)
     * [场馆删除](/gymDetail/delete)
+    * [场馆查询列表](/gym.md)
