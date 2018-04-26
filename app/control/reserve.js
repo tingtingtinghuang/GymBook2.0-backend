@@ -5,7 +5,7 @@
 
 const { model: reserveModel } = require('../model/reserve.js');
 
-//通过id号查询预订单
+// 通过id号查询预订单
 module.exports['reserve'] = async (req, res) => {
     let _id = req.query.id || req.body.id;
     console.log(_id);
