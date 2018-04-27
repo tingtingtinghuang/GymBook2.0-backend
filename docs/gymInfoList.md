@@ -4,10 +4,10 @@
 - 场馆介绍列表接口
 
 **请求URL：**
-- /gymList
+- /gymInfoList
 
 **请求方式：**
-- GET、POST
+- GET
 
 **参数：** 
 无
