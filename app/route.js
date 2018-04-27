@@ -17,6 +17,7 @@ module.exports = async function (app, express, acl) {
 
     app.use('/', cors());
     app.use(cookieParser());
+    app.use(bodyParser.json());
     app.use(parseForm);
     // app.use(csrfProtection);// 所有的post请求都会验证csrf 具体参考 {@link https://www.npmjs.com/package/csurf}
 
