@@ -50,7 +50,7 @@ if (output) {
 
 server.listen(8991, () => {
 
-    if (env !== 'production') {
+    if (env === 'production') {
         console.log('Production mode does not need to check eslint');
     }
 
