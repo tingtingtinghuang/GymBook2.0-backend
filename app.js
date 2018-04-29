@@ -22,6 +22,11 @@ const cli = new CLIEngine({
 
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 console.log('当前运行版本', process.version, '当前运行环境', env);
+
+if (env === 'production') {
+    conf = require('./conf/conf-prod');
+}
+
 // lint myfile.js and all files in lib/
 const report = cli.executeOnFiles([path.join(__dirname, './app/**/*.js')]);
 
@@ -34,7 +39,7 @@ const formatter = cli.getFormatter();
 
 // output to console
 let output;
-if (env === 'development') {
+if (env !== 'production') {
     output = formatter(report.results);
 }
 
@@ -45,7 +50,7 @@ if (output) {
 
 server.listen(8991, () => {
 
-    if (env !== 'development') {
+    if (env === 'production') {
         console.log('Production mode does not need to check eslint');
     }
 

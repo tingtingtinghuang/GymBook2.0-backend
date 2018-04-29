@@ -1,3 +1,5 @@
+# GymBook2.0-backend
+
 # 后端
 [项目模块](http://note.youdao.com/noteshare?id=a6da5822283bf8cecc4e04a2df2a3b0d)
 
@@ -10,7 +12,7 @@
 推荐使用webstorm
 
 1. npm install
-2. 在model/sync/下执行 所有的　init-*.js (node init-gym.js ...等等)
+2. 在model/sync/下执行 所有的　init-*.js (node init-gym.js ...等等) 或者直接执行 syncAll.js
 3. node app.js 或者 调试debug webstorm
 
 
