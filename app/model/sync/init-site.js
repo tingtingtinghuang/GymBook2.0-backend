@@ -1,3 +1,7 @@
 const { model } = require('../site');
 
-model.sync({ force: true });
+function init() {
+    model.sync({ force: true });
+}
+
+init();

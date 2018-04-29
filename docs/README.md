@@ -9,7 +9,7 @@
 npm i docsify-cli -g
 
 // 运行
-docsify serve docs
+在根目录,非/doc目录下运行 docsify serve docs
 
 // 访问 
 打开localhost:3000
