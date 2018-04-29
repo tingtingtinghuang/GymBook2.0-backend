@@ -21,25 +21,50 @@ module.exports['index'] = async function (req, res) {
 
     let { id, ps = 10, pi = 0 } = req.query;
 
-    // 默认返回10条所有的类型
-    let data = await newsModel.findAll({
-        attributes: [[sequelize.fn('COUNT', sequelize.col('*')), 'count']],
+    const queryOps = {
         limit: ps,
-        offset: pi
-    });
+        offset: pi * 10
+    };
 
-    // 如果传递id则返回对应的id
-    if (!isNaN(id)) {   // 查找对应的id
-        data = await newsModel.findAll({
-            attributes: [[sequelize.fn('COUNT', sequelize.col('*')), 'count']],
-            where: { ref_type: id },
-            limit: ps,
-            offset: pi
-        });
+    // 查询详情
+    if (!isNaN(id)) {
+        queryOps['where'] = { ref_type: id };
     }
+
+    let data = await newsModel.findAll(queryOps);
+
+    delete queryOps['limit'];
+    delete queryOps['offset'];
+    queryOps['attributes'] = [[sequelize.fn('COUNT', sequelize.col('*')), 'count']];
+    let countRes = await newsModel.findOne(queryOps);
+
+    // 计算count
     res.send({
         code: 1,
         msg: 'get news done',
+        data: {
+            count: countRes.dataValues.count,
+            list: data
+        }
+    });
+};
+
+module.exports['detail'] = async function (req, res) {
+    // valid
+
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(422).send({ code: 0, msg: errors.mapped(), data: null });
+    }
+
+    let id = req.params.id;
+    let data = await newsModel.findOne({
+        where: id
+    });
+    res.send({
+        code: 1,
+        msg: 'get news detail done',
         data: data
     });
 };

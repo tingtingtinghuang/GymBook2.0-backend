@@ -10,14 +10,14 @@ const { checkSchema, validationResult } = require('express-validator/check');
 
 module.exports = function ({ auth, upload, app }) {
     app.use('/news', router);
-    router.get('/|/:id', checkSchema({
+    router.get('/', checkSchema({
         id: {
             // The location of the field, can be one or more of body, cookies, headers, params or query.
             // If omitted, all request locations will be checked
             optional: {
                 nullable: true
             },
-            in: ['params', 'query'],
+            in: ['query'],
             errorMessage: 'id 必须为数字类型',
             isInt: true,
             // Sanitizers can go here as well
@@ -48,6 +48,20 @@ module.exports = function ({ auth, upload, app }) {
             toInt: true
         },
     }), ctrl.index);
+    router.get('/type', ctrl.newsType);
+    router.get('/:id', checkSchema({
+        id: {
+            // The location of the field, can be one or more of body, cookies, headers, params or query.
+            // If omitted, all request locations will be checked
+            optional: {
+                nullable: true
+            },
+            errorMessage: 'id 必须为数字类型',
+            isInt: true,
+            // Sanitizers can go here as well
+            toInt: true
+        },
+    }), ctrl.detail);
     router.post('/', (req, res) => {
         res.send('2333');
     });
