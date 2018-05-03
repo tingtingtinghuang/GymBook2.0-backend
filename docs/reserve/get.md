@@ -86,10 +86,14 @@
 |limit_time |string   |限制预约时间|
 |open_time |string   |开放时间|
 
-***根据gym的id 判断time_type若为0即按时间预约时返回示例***
+####根据gym的id 判断time_type若为0即按时间预约时返回示例
+|参数名|类型|说明|
+|:-----  |:-----|-----                           |
 |count |number   |场馆内场地总数  |
 |gym |object   |场馆信息  |
 |list |array   |场馆内场地已预约时间  |
 
-***根据gym的id 判断time_type若为1即按天预约时返回示例***
-|data |object   |场馆内场地已预约时间  |
+####根据gym的id 判断time_type若为1即按天预约时返回示例
+|参数名|类型|说明|
+|:-----  |:-----|-----                           |
+|data |object   |场馆信息  |
