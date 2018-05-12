@@ -2,6 +2,8 @@
     * [场馆预定查询](/reserve/get.md)
 
 * <strong><font size="3">场馆列表（预定中心模块,后端模块2）</font></strong>
+ * [场馆查询列表](/gym.md)
+
 
 * <strong><font size="3">首页列表（预定大厅模块,后端模块3）</font></strong>
     * [首页场地列表](/indexList/index-ar)
@@ -19,8 +21,7 @@
     * [场馆新增](/gymDetail/post)
     * [场馆修改](/gymDetail/put)
     * [场馆删除](/gymDetail/delete)
-    * [场馆查询列表](/gym.md)
-
+   
 
   
     
