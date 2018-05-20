@@ -61,20 +61,46 @@
 }
 // 根据gym的id 判断time_type若为1即按天预约时返回示例
 {
+  "code": 1,
+  "msg": "success",
+  "filename":"reserveByDay",
+  "res":{
     "code": 1,
-    "msg": "success",
+    "msg": "获得按天预定的订单信息",
     "data":{
-        "title": "篮球场",
-        "description": "西区篮球场",
-        "html": "4块篮球场",
-        "addr": "西区",
-        "rank": 9,
-        "status": 0,
-        "limit_time": "2018-04-23 14:00 ~ 2018-04-23 15:00",
-        "open_time": "9:00 ~ 21:00",
-        "limit_num": null,
-        "buy_limit_num": 8
+      "title": "篮球场",
+      "description": "西区篮球场",
+      "html": "4块篮球场",
+      "addr": "西区",
+      "rank": 9,
+      "session":[
+        {
+          "date": "2018-05-08",
+          "timeSlot": [
+            {
+              "open_time": "08:00-12:00",
+              "status": 0
+            }]
+        },
+        {
+          "date": "2018-05-09",
+          "timeSlot": [
+            {
+              "open_time": "14:00-18:00",
+              "status": 0
+            },
+            {
+              "time": "18:00-20:00",
+              "status": 0
+            }]
+        }
+      ],
+      "limit_time": "2018-04-23 14:00 ~ 2018-04-23 15:00",
+      "limit_num": null,
+      "buy_limit_num": 8
     }
+  }
+
 }
  ```
 
