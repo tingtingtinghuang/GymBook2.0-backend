@@ -63,6 +63,7 @@ module.exports = function ({ auth, upload, app }) {
         },
     }), ctrl.detail);
     router.post('/', (req, res) => {
+        console.log('req.body', req.body);
         res.send('2333');
     });
 };
