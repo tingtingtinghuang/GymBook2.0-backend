@@ -6,7 +6,7 @@ const sequelize = require('../../conf/conn');
 const Sequelize = require('sequelize');
 
 const conf = {
-    title: Sequelize.STRING,    // 标题
+    type: Sequelize.STRING,    // 运动类型，可能的取值有"游泳","乒乓球","羽毛球","健身房","网球"，“足球”
     ref_gym: Sequelize.INTEGER //  场地对应的展馆
 };
 

@@ -7,10 +7,9 @@ const Sequelize = require('sequelize');
 
 const conf = {
     title: Sequelize.STRING,    // 标题
-    description: Sequelize.STRING,    // 描述
     html: Sequelize.TEXT, //  新闻内容
     view: Sequelize.INTEGER, // 浏览次数
-    ref_type: Sequelize.INTEGER, // 外键 对应新闻类型
+    type:Sequelize.INTEGER //新闻类型 0代表通知公告，1代表管理制度
 };
 
 const New = sequelize.define('new', conf);

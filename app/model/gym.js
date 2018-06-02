@@ -16,17 +16,14 @@ const conf = {
         allowNull: false,
         defaultValue: 0,
     },
-    status: { // 是否对外开放 0:开放 1:维修不对外开放
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 0,
+    status: { // 场馆是否可预订，如果time_type=0,status=0/1;如果time_type=1,status="0 1"，也就是根据open_time字段的数量来显示是否可用
+        type: Sequelize.STRING,
+        allowNull: false
     },
     logo: Sequelize.STRING, // 场地的logo图片
     price: Sequelize.STRING,    // 预约价格
-    limit_num: Sequelize.INTEGER, // 最大预约数量 只有预约类型为按天预约 才行
-    buy_limit_num: Sequelize.INTEGER, // 购买的时候 最多只能买几个
-    open_time: Sequelize.STRING,  // 开放时间 只有预约类型为按天预约才可以设定 比如 设定时间段为 2018-04-23 12:00 ~ 2018-04-23 14:00, 2018-04-23 15:00 ~ 2018-04-23 17:00
-    limit_time: Sequelize.STRING, // 限制预约时间 如果time_type为0 该栏位类型为 2018-04-23 14:00 ~ 2018-04-23 15:00, 如果time_type为1 该栏位类型为 2018-04-23
+    buy_limit_num: Sequelize.INTEGER, // 场地库存，根据库存信息计算按天预约的场是否还有位置
+    open_time: Sequelize.STRING,  // 开放时间,格式为"2018-04-23 12:00 ~  14:00"以逗号分隔，如果按天预约，这个字段会返回类似:“2018-04-23 12:00 ~  14:00, 2018-04-24 15:00 ~ 17:00”. 
     ref_type: Sequelize.INTEGER, // 外键 对应场地类型
     ref_area: Sequelize.INTEGER, // 外键 对应场地所属区域
     ref_sport: Sequelize.INTEGER, // 外键 对应场地所属运动类型
