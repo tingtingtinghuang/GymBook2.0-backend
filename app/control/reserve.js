@@ -9,13 +9,14 @@ const { model: reserveModel } = require('../model/reserve.js');
 const { model: gymModel } = require('../model/gym.js');
 const { model: siteModel } = require('../model/site.js');
 
-// 通过id号查询预订单
-module.exports['reserve'] = async (req, res) => {
-    let id = req.query.id;
-    let gym = await gymModel.findById(id);
-    res.send({
-        code: 1,
-        msg: 'get reserve',
-        data: gym
-    });
+// /area/type 判断time_type
+module.exports['index'] = async (req, res) => {
+    let area = req.params.area;
+    let type = req.params.type;
+    // let gym = await gymModel.findById(id);
+    // res.send({
+    //     code: 1,
+    //     msg: 'get reserve',
+    //     data: gym
+    // });
 };

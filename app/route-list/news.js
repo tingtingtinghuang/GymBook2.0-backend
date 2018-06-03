@@ -11,7 +11,7 @@ const { checkSchema, validationResult } = require('express-validator/check');
 module.exports = function ({ auth, upload, app }) {
     app.use('/news', router);
     router.get('/', checkSchema({
-        id: {
+        type: {
             // The location of the field, can be one or more of body, cookies, headers, params or query.
             // If omitted, all request locations will be checked
             optional: {
@@ -48,7 +48,7 @@ module.exports = function ({ auth, upload, app }) {
             toInt: true
         },
     }), ctrl.index);
-    router.get('/type', ctrl.newsType);
+    // router.get('/type', ctrl.newsType);
     router.get('/:id', checkSchema({
         id: {
             // The location of the field, can be one or more of body, cookies, headers, params or query.
@@ -61,9 +61,9 @@ module.exports = function ({ auth, upload, app }) {
             // Sanitizers can go here as well
             toInt: true
         },
-    }), ctrl.detail);
-    router.post('/', (req, res) => {
-        console.log('req.body', req.body);
-        res.send('2333');
-    });
+    }), ctrl.content);
+    // router.post('/', (req, res) => {
+    //     console.log('req.body', req.body);
+    //     res.send('2333');
+    // });
 };

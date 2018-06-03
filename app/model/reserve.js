@@ -4,14 +4,40 @@
 
 const sequelize = require('../../conf/conn');
 const Sequelize = require('sequelize');
+const { model: gymModel } = require('./gym');
+const { model: userModel } = require('./user');
 
 const conf = {
-   
-    user: Sequelize.INTEGER,      // 用户id
-    reserveTime:Sequelize.STRING, // 预约时间 如果time_type为0 该栏位类型为 2018-04-23 14:00 ~ 2018-04-23 15:00, 如果time_type为1 该栏位类型为 2018-04-23
+
+    user: {
+        type: Sequelize.INTEGER,
+        references: {
+            // 这是引用另一个模型
+            model: userModel,
+
+            // 这是引用模型的列名称
+            key: 'id',
+
+            // 这声明什么时候检查外键约束。 仅限PostgreSQL。
+            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+        }
+    },      // 用户id
     time: Sequelize.STRING,      //  下单时间
-    ref_gym: Sequelize.INTEGER,   // 外键 对应的预约展馆
-    follow:Sequelize.INTEGER,  //关注的场馆，对应场馆的id
+
+    ref_gym: {
+        type: Sequelize.INTEGER,
+        references: {
+            // 这是引用另一个模型
+            model: gymModel,
+
+            // 这是引用模型的列名称
+            key: 'id',
+
+            // 这声明什么时候检查外键约束。 仅限PostgreSQL。
+            deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+        }
+    },   // 外键 对应的预约展馆
+
 };
 
 const Reserve = sequelize.define('reserve', conf);

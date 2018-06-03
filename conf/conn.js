@@ -10,6 +10,7 @@ if (env === 'production') {
 const sequelize = new Sequelize(conf.mysql.database, conf.mysql.user, conf.mysql.password, {
     host: conf.mysql.host,
     dialect: 'mysql',
+    port: conf.mysql.port,
     define: {
         charset: 'utf8',
         dialectOptions: {

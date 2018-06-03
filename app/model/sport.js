@@ -7,6 +7,7 @@ const Sequelize = require('sequelize');
 
 const conf = {
     title: Sequelize.STRING,    // 标题
+    title_eglish: Sequelize.STRING,
     logo: Sequelize.STRING, // 游泳馆的icon图片
 };
 

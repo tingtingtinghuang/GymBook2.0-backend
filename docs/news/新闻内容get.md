@@ -4,7 +4,7 @@
 - 新闻内容获取接口
 
 **请求URL：**
-- /newscontent?newsId
+- /news/:id
 
 **请求方式：**
 - get

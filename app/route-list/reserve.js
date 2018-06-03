@@ -9,6 +9,6 @@ const ctrl = require('../control/reserve.js');
 
 module.exports = function ({ auth, upload, app }) {
     app.use('/reserve', router);
-    router.get('/', ctrl.reserve);
-    router.post('/', ctrl.reserve);
+    router.get('/:area/:type', ctrl.index);
+    // router.post('/', ctrl.reserve);
 };

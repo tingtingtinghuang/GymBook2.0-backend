@@ -4,10 +4,11 @@ module.exports = {
     'secret': 'admin',
     'maxAge': 604800000,
     mysql: {
-        database: 'test',
+        database: 'Gym',
         user: 'root',
         password: '1234',
-        host: '127.0.0.1'
+        host: '39.108.179.140',
+        port: 3308
     }
 };
 
