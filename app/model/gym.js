@@ -10,7 +10,7 @@ const { model: sprotModel } = require('./sport');
 const conf = {
     title: Sequelize.STRING,    // 标题
     description: Sequelize.STRING,    // 描述
-    html: Sequelize.TEXT, //  场地内容
+    siteNumber: Sequelize.INTEGER, //  场地个数
     addr: Sequelize.STRING,   // 地址
     rank: Sequelize.INTEGER, // 评分
     time_type: { // 预约时间类型 0为按时间预约 1为按天预约 按天预约则无场地选项

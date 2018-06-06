@@ -4,7 +4,7 @@
 - 预定系统接口：添加新的预定
 
 **请求URL：**
-- /area/type
+- /reserve/:id
 后台根据area/type参数查询time_type
 **请求方式：**
 - POST
@@ -14,7 +14,9 @@
 |参数名|必选|类型|说明|
 |:----    |:---|:----- |-----   |
 |userId |是  |String |用户id   |
-|reservedDate |是  |String |预约日期   | 2018-05-02 14:00 ~ 15:00 或者 2018-05-02
+|id |是  |Number |场馆id   |
+|siteId |否  |Number |场地id   |
+|reserveTime |是  |String |预约日期   | 2018-05-02 14:00 ~ 15:00
 
 
 **返回示例**

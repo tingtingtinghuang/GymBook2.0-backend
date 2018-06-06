@@ -16,12 +16,13 @@ module.exports['index'] = async function (req, res) {
     if (!errors.isEmpty()) {
         return res.status(422).send({ code: 0, msg: errors.mapped(), data: null });
     }
-
-    let { type, ps = 10, pi = 0 } = req.query;
+    // query用来获取get后面的参数
+    let { type = 0, ps = 10, pi = 0 } = req.query;
 
     const queryOps = {
         limit: ps,
-        offset: pi * 10
+        offset: pi * 10,
+        type
     };
 
     // 查询详情
@@ -35,6 +36,7 @@ module.exports['index'] = async function (req, res) {
     delete queryOps['limit'];
     delete queryOps['offset'];
     queryOps['attributes'] = [[sequelize.fn('COUNT', sequelize.col('*')), 'count']];
+
     let countRes = await newsModel.findOne(queryOps);
 
     // 计算count
@@ -56,7 +58,7 @@ module.exports['content'] = async function (req, res) {
     if (!errors.isEmpty()) {
         return res.status(422).send({ code: 0, msg: errors.mapped(), data: null });
     }
-
+    //  params用来获取:id
     let id = req.params.id;
     let data = await newsModel.findOne({
         where: id
