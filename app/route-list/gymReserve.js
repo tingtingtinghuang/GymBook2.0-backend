@@ -1,8 +1,3 @@
-/**
- * gymDetail 路由
- * @author xiaozhu
- */
-
 const express = require('express');
 const router = express.Router();
 const ctrl = require('../control/gymReserve.js');

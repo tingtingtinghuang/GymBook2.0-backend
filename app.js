@@ -72,7 +72,6 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, './views'));
 
 app.set('conf', conf);
-
 app.use(cookieSession({
     secret: conf.secret,
     maxAge: conf.maxAge,

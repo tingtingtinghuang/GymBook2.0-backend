@@ -4,8 +4,8 @@
 - 预定系统接口：添加新的预定
 
 **请求URL：**
-- /reserve/:id
-后台根据area/type参数查询time_type
+- /reserve
+
 **请求方式：**
 - POST
 

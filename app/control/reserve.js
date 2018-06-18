@@ -13,13 +13,12 @@ const { model: reservesModel } = require('../model/reserve');
 // index查询场地的订单
 module.exports['index'] = async (req, res) => {
 
-    let id  = req.params.id;
-
+    let { id }  = req.query;
     const queryOps = {
         'where': { id: id }
     };
 
-    queryOps['attributes'] = ['title', 'description', 'siteNumber', 'addr', 'rank', 'open_time', 'time_type', 'status'];
+    queryOps['attributes'] = ['id', 'title', 'description', 'siteNumber', 'addr', 'rank', 'open_time', 'time_type', 'status', 'price'];
 
     let gym = await gymModel.findOne(queryOps);
     if (gym.time_type === 0) {
@@ -47,10 +46,10 @@ module.exports['index'] = async (req, res) => {
             msg: 'get reserve',
             data: {
                 gym,
-                list: {
-                    status: gym.status,
-                    open_time: gym.open_time
-                }
+                // list: {
+                //     status: gym.status,
+                //     open_time: gym.open_time
+                // }
             }
         });
     }
@@ -61,7 +60,7 @@ module.exports['index'] = async (req, res) => {
 module.exports['addReserve'] = async (req, res) => {
     let userId  = req.body.userId;
     let reserveTime = req.body.reserveTime;
-    let gymId = req.params.id;
+    let gymId = req.body.id;
     let siteId = req.body.siteId;
 
 
@@ -87,7 +86,7 @@ module.exports['addReserve'] = async (req, res) => {
             stock--;
             let newStock = gym.stock.replace(stockReg, index + ':' + stock);
             try {
-                gymModel.update({
+                await gymModel.update({
                     stock: newStock
                 }, {
                     where: {

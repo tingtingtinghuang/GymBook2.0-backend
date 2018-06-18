@@ -37,6 +37,7 @@
     "hawk": "^6.0.1",
     "jade": "^1.11.0",
     "json-bigint": "^0.2.3",
+    "jsonwebtoken": "^8.3.0",
     "mobile-detect": "^1.3.6",
     "moment": "^2.20.1",
     "mysql2": "^1.5.3",
