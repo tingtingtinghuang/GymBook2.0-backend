@@ -14,8 +14,10 @@ let fs = require('fs');
 let path = require('path');
 
 module.exports = async function (app, express, acl) {
-
-    app.use('/', cors());
+    let corsOptions = {
+        origin: 'http://192.168.199.246',
+    };
+    app.use('/', cors(corsOptions));
     app.use(cookieParser());
     app.use(bodyParser.json());
     app.use(parseForm);

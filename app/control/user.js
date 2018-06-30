@@ -25,7 +25,9 @@ module.exports['session'] = async function (req, res) {
             account: account
         }
     });
+
     res.cookie('token', token, { httpOnly: true });
+
     if (user !== null && user.password === password) {
         res.send({
             code: 1,
